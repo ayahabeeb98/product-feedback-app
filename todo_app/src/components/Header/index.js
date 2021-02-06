@@ -14,6 +14,7 @@ export default function Header() {
                 <h1>Todo</h1>
                 <button className="btn btn-toggle" onClick={toggleIcon}>
                     <img src={icon ? moonIcon : sunIcon} alt=""/>
+                    <span className="visually-hidden">toggle theme</span>
                 </button>
             </section>
         </header>

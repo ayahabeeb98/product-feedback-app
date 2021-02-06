@@ -1,31 +1,79 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
-
-
 :root {
-  --very-light-gray:  hsl(0, 0%, 98%);
-  --very-light-grayish-blue: hsl(236, 33%, 92%);
-  --light-grayish-blue: hsl(233, 11%, 84%);
-  --dark-grayish-blue: hsl(236, 9%, 61%);
-  --Very-dark-grayish-blue: hsl(235, 19%, 35%);
+    --bright-blue: hsl(220, 98%, 61%);
+
+}
+
+:root.light-theme {
+    --gray: hsl(0, 0%, 98%);
+    --very-light-grayish-blue: hsl(236, 33%, 92%);
+    --light-grayish-blue: hsl(233, 11%, 84%);
+    --dark-grayish-blue: hsl(236, 9%, 61%);
+    --Very-dark-grayish-blue: hsl(235, 19%, 35%);
+    --task-font-color: hsl(235, 19%, 35%);
+}
+
+:root.dark-theme {
+    --gray: hsl(235, 21%, 11%);
+    --very-light-grayish-blue: hsl(235, 24%, 19%);
+    --light-grayish-blue: hsl(234, 39%, 85%);
+    --light-grayish-blue-hover: hsl(236, 33%, 92%);
+    --dark-grayish-blue: hsl(234, 11%, 52%);
+    --Very-dark-grayish-blue: hsl(236, 33%, 92%);
+    --Very-dark-grayish-blue-dark: hsl(237, 14%, 26%);
+    --task-font-color: hsl(234, 39%, 85%);
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 18px;
-  font-weight: 400;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    background-color: var(--gray);
 }
 
 .container {
-  max-width: 550px;
-  margin: 0 auto;
+    max-width: 550px;
+    margin: 0 auto;
 }
 
 .btn {
-  cursor: pointer;
+    cursor: pointer;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
+
+
+
+@media (max-width: 586px) {
+    .container {
+        max-width: 90%;
+    }
+
+    .app-header {
+        min-height: 200px;
+    }
+
+    .header-bar {
+        padding-top: 2em;
+    }
+
+    .addTaskForm {
+        min-height: 2em;
+    }
+
 }
