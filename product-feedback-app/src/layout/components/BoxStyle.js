@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const TagsWrapper = styled.div`
+export const BoxWrapper = styled.div`
     width: 225px;
     border-radius: 10px;
     margin: 0 auto;
@@ -9,6 +9,10 @@ export const TagsWrapper = styled.div`
     flex-wrap: wrap;
     gap: 0.875rem 0.5rem;
     padding: 1.5em 1.125em 2.25em 1.5em;
+    
+    @media screen and (min-width: 768px){
+      width: unset; 
+    }
 `;
 
 
@@ -33,8 +37,78 @@ export const Tag = styled.button`
     }
     @media screen and (min-width: 768px) {
         &:hover {
-            background-color: var(--medium-blue);
+            background-color: #CFD7FF;
         }
     }
 `;
+
+export const BoxTitleWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+`;
+
+export const BoxMainTitle = styled.h3`
+  font-size: 1.125em;
+  letter-spacing: -0.25px;
+  color: var(--dark-blue);
+`;
+
+export const BoxLink = styled.a`
+   color: var(--light-blue);
+   text-decoration: underline;
+   text-transform: capitalize;
+   cursor: pointer;
+   transition: all 300ms ease-in-out;
+   &:hover {
+      color: #8397F8;
+   }
+`;
+
+
+export const RoadMapItem = styled.li`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+    font-size: 1em;
+    color: var(--grayish-blue);
+    position: relative;
+    padding-left: 1em;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+ 
+     &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 0.5rem;
+        width: 0.5rem;
+        border-radius: 50%;
+    
+    }
+    &:first-of-type::before {
+        background-color: var(--planned-color);
+    }
+    &:nth-of-type(2)::before {
+        background-color: var(--purple-color);
+    }
+    &:last-of-type::before {
+        background-color: var(--very-light-blue);
+    }
+    
+     @media screen and (min-width: 768px) {
+        &:hover {
+           transform: scale(1.02);
+        }
+    }
+`;
+
+export const ItemNumber = styled.p`
+  font-weight: 700;
+`;
+
 

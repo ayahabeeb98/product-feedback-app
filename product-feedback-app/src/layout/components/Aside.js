@@ -2,6 +2,10 @@ import React, {useState, useEffect} from 'react';
 import {AsideWrapper, Header, HeadrText, MainText, SubText, ToggleBtn} from "./AsideStyle";
 import CloseIcon from "../../assets/shared/mobile/icon-close.svg";
 import OpenIcon from "../../assets/shared/mobile/icon-hamburger.svg";
+import TagsBox from "./TagsBox";
+import MobileNav from "./MobileNav";
+import RoadMapBox from "./RoadMapBox";
+
 
 export default function Aside() {
     const [isNavOpen, setIsNavOpen] = useState(false);
@@ -17,6 +21,16 @@ export default function Aside() {
 
     const handleResize = () => {
         setIsMobile(window.innerWidth < 768);
+        if (isMobile && isNavOpen) {
+            document.body.classList.add('overlay')
+        }else {
+            document.body.classList.remove('overlay')
+        }
+    };
+
+    const toggleNav = () => {
+        setIsNavOpen(!isNavOpen);
+        // document.body.classList.toggle('overlay')
     };
 
     return (
@@ -30,17 +44,18 @@ export default function Aside() {
                 {
                     isMobile &&
                     <ToggleBtn aria-label='Toggle menu' aria-expanded={isNavOpen}
-                               aria-haspopup='true' onClick={() => setIsNavOpen(!isNavOpen)}>
+                               aria-haspopup='true' onClick={toggleNav}>
                         <img src={isNavOpen ? CloseIcon : OpenIcon} alt=""/>
                     </ToggleBtn>
                 }
             </Header>
-            <div>
-                Tags Box
-            </div>
-            <div>
-                Road map Box
-            </div>
+            {isMobile ?
+            <MobileNav isOpen={isNavOpen}/>
+            :
+            <>
+                <TagsBox/>
+                <RoadMapBox/>
+            </>}
         </AsideWrapper>
     )
 }

@@ -6,6 +6,8 @@ import desktopBg from '../../assets/suggestions/desktop/background-header.png';
 export const AsideWrapper = styled.aside`
     display: grid;
     grid-template-columns: 1fr;
+    position: relative;
+    z-index: 2;
     
     @media screen and (min-width: 768px) {
       margin-bottom: 2.5em;
@@ -69,9 +71,6 @@ export const MainText = styled.h2`
 
   }
   
-  @media screen and (min-width: 992px){
-  
-  }
 `;
 
 export const SubText = styled.p`
@@ -94,3 +93,22 @@ export const ToggleBtn = styled.button`
     height: 100%;
     background-color: transparent;
 `;
+
+export const MobileMenu = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    max-width: 271px;
+    padding: 1.5em;
+    position: absolute;
+    top: 100%;
+    background-color: var(--background-color);
+    right:0;
+   transform:${props => props.open ? "translateX(0)" : "translateX(-100%)"};
+    visibility: ${props => props.open ? 'visible' : 'hidden'};
+    transition: all .5s ease-in-out;
+    z-index: 2;
+    height: 100vh;
+`;
+
