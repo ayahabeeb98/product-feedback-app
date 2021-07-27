@@ -7,10 +7,9 @@ const BaseLayout = ({children}) => {
         <Container>
             <Aside />
 
-            <section className="pageContent">
+            <section>
                     {children}
             </section>
-
         </Container>
     )
 };

@@ -59,6 +59,14 @@ const GlobalStyle = createGlobalStyle`
       height: 100vh;
       background-color: rgba(0,0,0,.5);
    }
+   
+   .logoWrapper {
+      display: none;
+       @media screen and (min-width: 768px) {
+          display: flex;
+          align-items: center;
+       }
+   }
   
 `;
 
