@@ -3,10 +3,15 @@ import styled from 'styled-components';
 export const HomeHeader = styled.header`
   background-color: var(--navbar-color);
   color: var(--light-gray);
-  padding: .5em 1.5em;
+  padding: .5em 1em;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  
+  @media screen and (min-width: 370px) {
+    padding: .5em 1.5em;
+  }
   
   @media screen and (min-width: 768px) {
     border-radius: 10px;
@@ -51,12 +56,59 @@ export const FilterOptions = styled.button`
     }
 `;
 
+export const OptionsList = styled.ul`
+      border-radius: 10px;
+      box-shadow: 0 10px 40px -7px rgba(55,63,104,.35);
+      background-color: var(--white);
+      position: absolute;
+      top: 100%;
+      left: 5%;
+      margin-top: 1em;
+      @media screen and (min-width: 768px) {
+           left: 30%;
+      }
+`;
+
+export const OptionItem = styled.li`
+    padding-top: .75em;
+    padding-bottom: .75em;
+    padding-left: 1.5em;
+    min-width: 255px;
+    color: var(--grayish-blue);
+    transition: all 300ms ease-in-out;
+    position: relative;
+    cursor: pointer;
+    
+    &:not(:last-of-type) {
+        border-bottom: 1px solid rgba(58,67,116,.15);
+    }
+    
+ 
+    
+    &:hover {
+      color: var(--purple-color)
+    }
+
+    
+`;
+
+export const SelectedOption  = styled(OptionItem)`
+  &::after {
+      content: '✓';
+      position: absolute;
+      right: 1.5em;
+      font-weight: bold;
+      top: 20%;
+      color: var(--purple-color);
+    }
+`;
+
 export const BtnAdd = styled.button`
     background-color: var(--purple-color);
     color: var(--light-gray);
     font-size: 0.8125em;
     font-weight: 700;
-    padding: 0.807em 1.23em;
+    padding: 0.807em 1em;
     border-radius: 10px;
     border: 1px solid transparent;
     cursor: pointer;  
