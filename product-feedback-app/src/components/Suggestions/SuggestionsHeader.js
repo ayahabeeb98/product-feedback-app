@@ -11,16 +11,16 @@ const FILTERS = [
 ];
 export default function SuggestionsHeader() {
     const [filtersOpen,setFiltersOpen] = useState(false);
-    const [filtersKey,setFiltersKey] = useState('mUpvotes');
+    const [filterKey,setFilterKey] = useState('Most Upvotes');
 
     const handleFilterChange = (filterOption) => {
-        setFiltersKey(filterOption);
+        setFilterKey(filterOption);
         setFiltersOpen(!filterOption)
     };
 
     const filtersList = FILTERS.map(item => {
-        const ActiveOption = filtersKey === item.key ? SelectedOption : OptionItem;
-        return <ActiveOption onClick={()=> handleFilterChange(item.key)} key={item.key}>
+        const ActiveOption = filterKey === item.name ? SelectedOption : OptionItem;
+        return <ActiveOption onClick={()=> handleFilterChange(item.name)} key={item.key}>
                 {item.name}
                </ActiveOption>
         }
@@ -36,7 +36,7 @@ export default function SuggestionsHeader() {
                     </SuggestionHeading>
                 </div>
                 <FilterHeading>Sort by :</FilterHeading>
-                <FilterOptions onClick={()=>setFiltersOpen(!filtersOpen)}>Most Upvotes</FilterOptions>
+                <FilterOptions onClick={()=>setFiltersOpen(!filtersOpen)}>{filterKey}</FilterOptions>
                 {
                     filtersOpen &&
                     <OptionsList>
