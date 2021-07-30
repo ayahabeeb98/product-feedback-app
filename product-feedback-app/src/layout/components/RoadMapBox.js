@@ -1,9 +1,9 @@
 import React from 'react';
-import {BoxWrapper,BoxTitleWrapper,BoxMainTitle,BoxLink,RoadMapItem,ItemNumber} from './BoxStyle';
+import {RoadMapBoxWrapper,BoxTitleWrapper,BoxMainTitle,BoxLink,RoadMapItem,ItemNumber} from './BoxStyle';
 
 export default function RoadMapBox() {
     return (
-        <BoxWrapper>
+        <RoadMapBoxWrapper>
             <BoxTitleWrapper>
                 <BoxMainTitle>
                     Roadmap
@@ -39,6 +39,6 @@ export default function RoadMapBox() {
                     </ItemNumber>
                 </RoadMapItem>
             </ul>
-        </BoxWrapper>
+        </RoadMapBoxWrapper>
     )
 }

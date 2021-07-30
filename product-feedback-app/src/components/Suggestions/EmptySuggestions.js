@@ -6,7 +6,7 @@ import EmptySuggestion from "../../assets/suggestions/illustration-empty.svg";
 export default function EmptySuggestions() {
     return (
         <SuggestionWrapper>
-            <img src={EmptySuggestion} style={{minWidth: '20%'}} alt=""/>
+            <img src={EmptySuggestion} className="emptyImg" alt=""/>
             <SuggestionsTitle>There is no feedback yet.</SuggestionsTitle>
             <SuggestionsText>
                 Got a suggestion? Found a bug that needs to be squashed?

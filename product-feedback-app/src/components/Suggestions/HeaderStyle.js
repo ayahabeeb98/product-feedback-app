@@ -92,7 +92,7 @@ export const OptionItem = styled.li`
     
 `;
 
-export const SelectedOption  = styled(OptionItem)`
+export const SelectedOption = styled(OptionItem)`
   &::after {
       content: '✓';
       position: absolute;
@@ -113,10 +113,17 @@ export const BtnAdd = styled.button`
     border: 1px solid transparent;
     cursor: pointer;  
     transition: all 300ms ease-in-out;
-    
+    min-width:134px;
+    height: 40px;
+        
     &:hover {
       background-color: #C75AF6;
     }  
+    
+    @media screen and (min-width: 768px) {
+      min-width:158px;
+      height: 44px;
+    }
 `;
 
 export const SuggestionHeading = styled.h3`

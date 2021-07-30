@@ -67,6 +67,15 @@ const GlobalStyle = createGlobalStyle`
           align-items: center;
        }
    }
+   
+   .emptyImg {
+      width: 102px;
+      @media screen and (min-width: 768px) {
+        width: 129px;
+      }
+      
+   
+   }
   
 `;
 

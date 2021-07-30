@@ -16,8 +16,7 @@ export const AsideWrapper = styled.aside`
     }
     
      @media screen and (min-width: 992px) {
-        grid-template-columns: 1fr;
-        grid-gap: 1.5em;
+        display: block;
      }
     
 `;
@@ -45,6 +44,7 @@ export const Header = styled.header`
      @media screen and (min-width: 992px) {
        background-image: url(${desktopBg});
        padding-top: 3.875em;
+       height: fit-content;
      }
 
 

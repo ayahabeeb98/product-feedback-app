@@ -35,7 +35,7 @@ export default function SuggestionsHeader() {
                         6 Suggestions
                     </SuggestionHeading>
                 </div>
-                <FilterHeading>sort by :</FilterHeading>
+                <FilterHeading>Sort by :</FilterHeading>
                 <FilterOptions onClick={()=>setFiltersOpen(!filtersOpen)}>Most Upvotes</FilterOptions>
                 {
                     filtersOpen &&

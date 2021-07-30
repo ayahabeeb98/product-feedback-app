@@ -10,9 +10,30 @@ export const BoxWrapper = styled.div`
     gap: 0.875rem 0.5rem;
     padding: 1.5em 1.125em 2.25em 1.5em;
     
-    @media screen and (min-width: 768px){
+    @media screen and (min-width: 992px){
       width: unset; 
+      margin: 1.5em 0;
+      padding-bottom: 1.5em;
     }
+`;
+
+export const RoadMapBoxWrapper = styled(BoxWrapper)`
+  padding-top: 1.125em;
+  padding-right: 1.5em;
+  padding-bottom: 1.5em;
+  gap: 0;
+  max-height: 178px;
+  
+  @media screen and (min-width: 768px){
+     width: unset; 
+  }
+   
+  @media screen and (min-width: 992px){
+     padding-top: 1em;
+  }
+  
+   
+   
 `;
 
 
@@ -47,6 +68,7 @@ export const BoxTitleWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    margin-bottom: 1.5em;
 
 `;
 
@@ -62,6 +84,7 @@ export const BoxLink = styled.a`
    text-transform: capitalize;
    cursor: pointer;
    transition: all 300ms ease-in-out;
+   font-size: 0.8125em;
    &:hover {
       color: #8397F8;
    }
@@ -78,7 +101,7 @@ export const RoadMapItem = styled.li`
     padding-left: 1em;
     cursor: pointer;
     transition: all 200ms ease-in-out;
- 
+    margin-bottom: .5em;
      &::before {
         content: '';
         position: absolute;
@@ -101,6 +124,7 @@ export const RoadMapItem = styled.li`
     }
     
      @media screen and (min-width: 768px) {
+        padding-left: 1.5em; 
         &:hover {
            transform: scale(1.02);
         }
