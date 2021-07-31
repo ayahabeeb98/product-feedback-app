@@ -9,18 +9,19 @@ const FILTERS = [
     {name: "Most Comments", key: "mComments"},
     {name: "Least Comments", key: "lComments"}
 ];
-export default function SuggestionsHeader() {
+export default function SuggestionsHeader({handleSortType}) {
     const [filtersOpen,setFiltersOpen] = useState(false);
-    const [filterKey,setFilterKey] = useState('Most Upvotes');
+    const [filterKey,setFilterKey] = useState( {name: "Most Upvotes",key:"mUpvotes"});
 
     const handleFilterChange = (filterOption) => {
         setFilterKey(filterOption);
         setFiltersOpen(!filterOption)
+        handleSortType(filterOption.key)
     };
 
     const filtersList = FILTERS.map(item => {
-        const ActiveOption = filterKey === item.name ? SelectedOption : OptionItem;
-        return <ActiveOption onClick={()=> handleFilterChange(item.name)} key={item.key}>
+        const ActiveOption = filterKey.key === item.key ? SelectedOption : OptionItem;
+        return <ActiveOption onClick={()=> handleFilterChange(item)} key={item.key}>
                 {item.name}
                </ActiveOption>
         }
@@ -36,7 +37,7 @@ export default function SuggestionsHeader() {
                     </SuggestionHeading>
                 </div>
                 <FilterHeading>Sort by :</FilterHeading>
-                <FilterOptions onClick={()=>setFiltersOpen(!filtersOpen)}>{filterKey}</FilterOptions>
+                <FilterOptions onClick={()=>setFiltersOpen(!filtersOpen)}>{filterKey.name}</FilterOptions>
                 {
                     filtersOpen &&
                     <OptionsList>

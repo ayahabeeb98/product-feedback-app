@@ -2,10 +2,10 @@ import React from 'react';
 import {SuggestionBox, SuggestionBoxTitle, VoteBtn, SuggestionBoxText, VoteAmount,FloatingComments,CommentsNumber} from './SuggestionsStyle';
 import {Tag} from '../../layout/components/BoxStyle';
 
-export default function SingleSuggestion({suggestion}) {
+export default function SingleSuggestion({suggestion,upvote}) {
     return (
         <SuggestionBox>
-            <VoteBtn>
+            <VoteBtn onClick={()=> upvote(suggestion.id)}>
                 <svg width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1.33447 6L5.33447 2L9.33447 6" stroke="#4661E6" strokeWidth="2"/>
                 </svg>
