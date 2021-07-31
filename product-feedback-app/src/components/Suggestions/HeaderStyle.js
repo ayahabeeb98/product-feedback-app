@@ -8,6 +8,7 @@ export const HomeHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   position: relative;
+  margin-bottom: 2em;
   
   @media screen and (min-width: 370px) {
     padding: .5em 1.5em;
@@ -64,6 +65,8 @@ export const OptionsList = styled.ul`
       top: 100%;
       left: 5%;
       margin-top: 1em;
+      z-index: 3;
+  
       @media screen and (min-width: 768px) {
            left: 30%;
       }

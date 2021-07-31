@@ -40,7 +40,8 @@ const GlobalStyle = createGlobalStyle`
         text-decoration: none;
     }
    
-   img {
+   img,
+   svg{
       vertical-align: middle;
    }
    
