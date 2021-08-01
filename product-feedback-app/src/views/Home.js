@@ -55,6 +55,10 @@ export default function Home() {
         setSuggestions(sortedSuggestions.map(i => i))
     }
 
+    //TODO
+    //Filter Suggestions By Tag Name
+    //Display a single suggestion, add, edit
+
     return (
         <>
             <SuggestionsHeader handleSortType={sortSuggestions}/>
