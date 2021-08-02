@@ -1,7 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {BoxWrapper, Tag} from './BoxStyle';
+import {SuggestionsContext} from '../../context/SuggestionsContext'
 
 export default function TagsBox() {
+    const suggestions = useContext(SuggestionsContext)
+    console.log(suggestions);
+
     return (
         <BoxWrapper>
             <Tag selected>All</Tag>

@@ -55,6 +55,11 @@ export default function Home() {
         setSuggestions(sortedSuggestions.map(i => i))
     }
 
+    const filteredSuggestions = (key) => {
+        let filteredList = suggestions.filter(item => item.category === key)
+        setSuggestions(filteredList);
+    }
+
     //TODO
     //Filter Suggestions By Tag Name
     //Display a single suggestion, add, edit
@@ -64,7 +69,7 @@ export default function Home() {
             <SuggestionsHeader handleSortType={sortSuggestions}/>
             {suggestions && loading ?
                 suggestions.map(req =>
-                    <SingleSuggestion key={req.id} suggestion={req} upvote={handleUpvote}/>
+                    <SingleSuggestion key={req.id} filterByTag={filteredSuggestions} suggestion={req} upvote={handleUpvote}/>
                 )
                 :
                 <EmptySuggestions/>

@@ -2,7 +2,7 @@ import React from 'react';
 import {SuggestionBox, SuggestionBoxTitle, VoteBtn, SuggestionBoxText, VoteAmount,FloatingComments,CommentsNumber} from './SuggestionsStyle';
 import {Tag} from '../../layout/components/BoxStyle';
 
-export default function SingleSuggestion({suggestion,upvote}) {
+export default function SingleSuggestion({suggestion,upvote,filterByTag}) {
     return (
         <SuggestionBox>
             <VoteBtn onClick={()=> upvote(suggestion.id)}>
@@ -15,7 +15,7 @@ export default function SingleSuggestion({suggestion,upvote}) {
             <div>
                 <SuggestionBoxTitle>{suggestion.title}</SuggestionBoxTitle>
                 <SuggestionBoxText>{suggestion.description}</SuggestionBoxText>
-                <Tag>{suggestion.category}</Tag>
+                <Tag onClick={()=>filterByTag(suggestion.category)}>{suggestion.category}</Tag>
 
             </div>
             <FloatingComments>
