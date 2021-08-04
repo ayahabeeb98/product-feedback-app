@@ -2,18 +2,26 @@ import React, {useContext} from 'react';
 import {BoxWrapper, Tag} from './BoxStyle';
 import {SuggestionsContext} from '../../context/SuggestionsContext'
 
+const TAGS = ['All','UI','UX','enhancement','bug','feature']
+
 export default function TagsBox() {
     const suggestions = useContext(SuggestionsContext)
-    console.log(suggestions);
+    const handleClick = (tagName) => {
+        if (tagName === 'All') {
+            suggestions.updateData('suggestionsData',suggestions.suggestionsData);
+        }else {
+            let filteredList = suggestions.suggestionsData.filter(item => item.category === tagName)
+            suggestions.updateData('suggestionsData',filteredList);
+        }
+
+        suggestions.updateData('currentCategory',tagName)
+    }
+
 
     return (
         <BoxWrapper>
-            <Tag selected>All</Tag>
-            <Tag>UI</Tag>
-            <Tag>UX</Tag>
-            <Tag>Enhancement</Tag>
-            <Tag>Bug</Tag>
-            <Tag>Feature</Tag>
+            {TAGS.map(tag =>  <Tag key={tag} onClick={()=>handleClick(tag)} selected={tag===suggestions.currentCategory}>{tag}</Tag>)}
+
         </BoxWrapper>
     )
 }

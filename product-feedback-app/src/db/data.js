@@ -45,7 +45,7 @@ export const DATA = {
     {
       "id": 2,
       "title": "Add a dark theme option",
-      "category": "feature",
+      "category": "UI",
       "upvotes": 99,
       "status": "suggestion",
       "description": "It would help people with light sensitivities and who prefer dark mode.",
@@ -93,7 +93,7 @@ export const DATA = {
     {
       "id": 3,
       "title": "Q&A within the challenge hubs",
-      "category": "feature",
+      "category": "UX",
       "upvotes": 65,
       "status": "suggestion",
       "description": "Challenge-specific Q&A would make for easy reference.",

@@ -1,6 +1,7 @@
 import React from 'react';
 import {SuggestionBox, SuggestionBoxTitle, VoteBtn, SuggestionBoxText, VoteAmount,FloatingComments,CommentsNumber} from './SuggestionsStyle';
 import {Tag} from '../../layout/components/BoxStyle';
+import {Link} from "react-router-dom";
 
 export default function SingleSuggestion({suggestion,upvote,filterByTag}) {
     return (
@@ -13,7 +14,9 @@ export default function SingleSuggestion({suggestion,upvote,filterByTag}) {
                 <VoteAmount>{suggestion.upvotes}</VoteAmount>
             </VoteBtn>
             <div>
-                <SuggestionBoxTitle>{suggestion.title}</SuggestionBoxTitle>
+               <Link to={{pathname: '/feedback',suggestionProps: {info: suggestion }}}>
+                   <SuggestionBoxTitle >{suggestion.title}</SuggestionBoxTitle>
+               </Link>
                 <SuggestionBoxText>{suggestion.description}</SuggestionBoxText>
                 <Tag onClick={()=>filterByTag(suggestion.category)}>{suggestion.category}</Tag>
 
