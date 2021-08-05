@@ -8,10 +8,10 @@ export default function TagsBox() {
     const suggestions = useContext(SuggestionsContext)
     const handleClick = (tagName) => {
         if (tagName === 'All') {
-            suggestions.updateData('suggestionsData',suggestions.suggestionsData);
+            suggestions.updateData('filteredSuggestions',suggestions.suggestionsData);
         }else {
             let filteredList = suggestions.suggestionsData.filter(item => item.category === tagName)
-            suggestions.updateData('suggestionsData',filteredList);
+            suggestions.updateData('filteredSuggestions',filteredList);
         }
 
         suggestions.updateData('currentCategory',tagName)

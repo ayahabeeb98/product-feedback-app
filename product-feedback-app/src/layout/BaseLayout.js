@@ -11,7 +11,8 @@ const BaseLayout = ({children}) => {
     useEffect(() => {
         let suggestionsData = DATA.productRequests.sort((a, b) => (b.upvotes - a.upvotes));
         let currentCategory = 'All';
-        setSuggestions({suggestionsData, currentCategory, updateData})
+        let filteredSuggestions = [...suggestionsData];
+        setSuggestions({suggestionsData, currentCategory, filteredSuggestions, updateData})
         setLoading(false)
     }, [])
 
