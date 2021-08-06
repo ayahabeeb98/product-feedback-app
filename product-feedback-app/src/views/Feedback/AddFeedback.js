@@ -19,7 +19,7 @@ const TAGS = ['UI', 'UX', 'enhancement', 'bug', 'feature']
 export default function AddFeedback() {
     const [selectedTag, setSelectedTag] = useState('feature');
     const [selectOpen, setSelectOpen] = useState(false);
-    const [isError, setIsError] = useState(false);
+    const [isError] = useState(false);
 
     const handleFilterChange = (tag) => {
         setSelectedTag(tag);
