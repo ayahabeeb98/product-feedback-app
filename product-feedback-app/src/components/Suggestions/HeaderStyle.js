@@ -81,8 +81,9 @@ export const OptionItem = styled.li`
     transition: all 300ms ease-in-out;
     position: relative;
     cursor: pointer;
-    
-    &:not(:last-of-type) {
+    text-transform: capitalize;
+
+  &:not(:last-of-type) {
         border-bottom: 1px solid rgba(58,67,116,.15);
     }
     

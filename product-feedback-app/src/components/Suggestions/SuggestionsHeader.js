@@ -5,7 +5,7 @@ import SuggestionIcon from "../../assets/suggestions/icon-suggestions.svg";
 import { useHistory } from 'react-router-dom';
 
 const FILTERS = [
-    {name: "Most Upvotes",key:"mUpvotes"},
+    {name: "Feature",key:"feature"},
     {name: "Least Upvotes", key: "lUpvotes"},
     {name: "Most Comments", key: "mComments"},
     {name: "Least Comments", key: "lComments"}
@@ -17,7 +17,7 @@ export default function SuggestionsHeader({handleSortType}) {
 
     const handleFilterChange = (filterOption) => {
         setFilterKey(filterOption);
-        setFiltersOpen(!filterOption)
+        setFiltersOpen(!filtersOpen)
         handleSortType(filterOption.key)
     };
 

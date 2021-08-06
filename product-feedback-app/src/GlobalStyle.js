@@ -61,6 +61,12 @@ const GlobalStyle = createGlobalStyle`
       background-color: rgba(0,0,0,.5);
    }
    
+   input,
+   textarea,
+   select {
+     border: 1px solid transparent;
+   }
+   
    .logoWrapper {
       display: none;
        @media screen and (min-width: 768px) {

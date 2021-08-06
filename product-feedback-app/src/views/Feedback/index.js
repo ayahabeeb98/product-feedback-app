@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
     AddCommentBox,
-    BtnPost, Comment, CommentContent, CommentInput, CommentRule,
+    BtnPost, BtnReplay, Comment, CommentContent, CommentInput, CommentRule,
     Comments,
-    CommentsTitle, DisplayName, NameWrapper, Replay, ReplayBtn, Rule,
+    CommentsTitle, DisplayName, NameWrapper, Replay, ReplayBtn, ReplayForm, ReplyInput, Rule,
     User, UserImage,
     UserInfo, UserName,
     Wrapper
@@ -15,7 +15,7 @@ import FeedbackHeader from "./Component/Header";
 
 export default function FeedBack(props) {
     const {selectedSuggestion} = props.location.suggestionProps;
-
+    const [replayOpen,setReplayOpen] = useState(false)
     return (
         <Wrapper>
             <FeedbackHeader/>
@@ -35,13 +35,19 @@ export default function FeedBack(props) {
                                 <UserName>@hexagon.bestagon</UserName>
                             </NameWrapper>
                         </UserInfo>
-                        <ReplayBtn>Replay</ReplayBtn>
+                        <ReplayBtn onClick={()=>setReplayOpen(!replayOpen)}>Replay</ReplayBtn>
                     </User>
                     <CommentContent>
                         Also, please allow styles to be applied based on system preferences. I would love to be able to
                         browse Frontend Mentor in the evening after my device’s dark mode turns on without the bright
                         background it currently has.
                     </CommentContent>
+                    {replayOpen &&
+                        <ReplayForm replayOpen={replayOpen}>
+                            <ReplyInput/>
+                            <BtnReplay>Post Reply</BtnReplay>
+                        </ReplayForm>
+                    }
                 </Comment>
 
                 <Comment>
