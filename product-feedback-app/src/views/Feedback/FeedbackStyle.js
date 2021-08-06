@@ -298,7 +298,7 @@ export const FormWrapper = styled.form`
 
 export const FloatingCircle = styled.div`
   position: absolute;
-  top: -3%;
+  top: ${props => props.edit ? '-2%' : '-3%'};
   left: 1.5em;
   width: 40px;
   height: 40px;
@@ -447,7 +447,8 @@ export const BtnsContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-
+  position: relative;
+  
   @media screen and (min-width: 768px) {
     flex-direction: row-reverse;
   }
@@ -498,6 +499,22 @@ export const FormCancel = styled(FormBtn)`
   @media screen and (min-width: 768px) {
     max-width: 93px;
   }
+`;
 
+export const FormDelete = styled(FormBtn)`
+  background-color: var(--red-color);
+  margin-top: 1.23em;
+  position: unset;
+  
+  &:hover {
+    background-color: #E98888;
+  }
+  
+  @media screen and (min-width: 768px) {
+    margin-top: 0;
+    max-width: 93px;
+    position: absolute;
+    left: 0;
 
+  }
 `;

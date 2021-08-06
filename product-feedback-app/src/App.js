@@ -9,6 +9,7 @@ import {SuggestionsContext} from './context/SuggestionsContext';
 const Home = React.lazy(() => import("./views/Home"));
 const FeedBack = React.lazy(() => import("./views/Feedback/"))
 const AddFeedBack = React.lazy(() => import("./views/Feedback/AddFeedback"))
+const EditFeedback = React.lazy(() => import("./views/Feedback/EditFeedback"))
 
 function App() {
     const [suggestions, setSuggestions] = useState(null)
@@ -40,6 +41,7 @@ function App() {
 
                         <Route path="/feedback" component={FeedBack}/>
                         <Route path="/add-feedback" component={AddFeedBack}/>
+                        <Route path="/edit-feedback" component={EditFeedback}/>
                     </SuggestionsContext.Provider>
                     }
                 </Suspense>

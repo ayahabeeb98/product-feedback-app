@@ -5,7 +5,7 @@ import SuggestionIcon from "../../assets/suggestions/icon-suggestions.svg";
 import { useHistory } from 'react-router-dom';
 
 const FILTERS = [
-    {name: "Feature",key:"feature"},
+    {name: "Most Upvotes",key:"mUpvotes"},
     {name: "Least Upvotes", key: "lUpvotes"},
     {name: "Most Comments", key: "mComments"},
     {name: "Least Comments", key: "lComments"}

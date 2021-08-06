@@ -79,8 +79,10 @@ export default function AddFeedback() {
                 </FormGroup>
 
                 <BtnsContainer>
-                    <FormBtnAdd>Add Feedback</FormBtnAdd>
-                    <FormCancel type="reset">Cancel</FormCancel>
+                    <div>
+                        <FormBtnAdd>Add Feedback</FormBtnAdd>
+                        <FormCancel type="reset">Cancel</FormCancel>
+                    </div>
                 </BtnsContainer>
 
             </FormWrapper>

@@ -6,6 +6,10 @@ export default function FeedbackHeader(){
     const history = useHistory();
     let location = useLocation().pathname;
 
+    const goToEdit = () => {
+        history.push('/edit-feedback');
+    }
+
     return (
         <Banner>
             <BackLink>
@@ -17,7 +21,7 @@ export default function FeedbackHeader(){
                 </BackLinkText>
             </BackLink>
             { location === '/feedback' &&
-                <BtnEdit>
+                <BtnEdit onClick={()=>goToEdit()}>
                     Edit Feedback
                 </BtnEdit>
             }
