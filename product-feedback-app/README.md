@@ -1,10 +1,11 @@
 # Frontend Mentor - Product feedback app solution
 
-This is a solution to the [Product feedback app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/product-feedback-app-wbvUYqjR6). This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution to the [Product feedback app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/product-feedback-app-wbvUYqjR6).
 
 ## Table of contents
 - [Overview](#overview)
   - [The challenge](#the-challenge)
+  - [Demo](#Demo)
   - [Screenshot](#screenshot)
 
 - [My process](#my-process)
@@ -27,6 +28,9 @@ Users should be able to:
 - Add comments and replies to a product feedback request
 - Upvote product feedback requests
 - **Bonus**: Keep track of any changes, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
+
+### Demo
+[Product feedback app](https://product-feedback-app-reactjs.vercel.app/)
 
 ### Screenshot
 
