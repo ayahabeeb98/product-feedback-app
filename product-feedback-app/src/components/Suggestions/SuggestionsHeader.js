@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {HomeHeader,FilterHeading,FilterOptions,BtnAdd,
     SuggestionHeading,OptionsList,OptionItem,SelectedOption} from './HeaderStyle';
 import SuggestionIcon from "../../assets/suggestions/icon-suggestions.svg";
+import { useHistory } from 'react-router-dom';
 
 const FILTERS = [
     {name: "Most Upvotes",key:"mUpvotes"},
@@ -12,6 +13,7 @@ const FILTERS = [
 export default function SuggestionsHeader({handleSortType}) {
     const [filtersOpen,setFiltersOpen] = useState(false);
     const [filterKey,setFilterKey] = useState( {name: "Most Upvotes",key:"mUpvotes"});
+    const history = useHistory();
 
     const handleFilterChange = (filterOption) => {
         setFilterKey(filterOption);
@@ -26,6 +28,11 @@ export default function SuggestionsHeader({handleSortType}) {
                </ActiveOption>
         }
     );
+
+    const goToAdd = () => {
+        history.push('/add-feedback');
+    }
+
 
     return (
         <HomeHeader>
@@ -45,7 +52,7 @@ export default function SuggestionsHeader({handleSortType}) {
                     </OptionsList>
                 }
             </div>
-            <BtnAdd>
+            <BtnAdd onClick={()=>goToAdd()}>
                 + Add Feedback
             </BtnAdd>
         </HomeHeader>

@@ -7,16 +7,6 @@ import {SuggestionsContext} from '../context/SuggestionsContext'
 export default function Home() {
     const suggestions = useContext(SuggestionsContext)
 
-    const handleUpvote = (id) => {
-        const suggestionsClone = suggestions.filteredSuggestions.map(item => {
-            if (item.id === id) {
-                return {...item, upvotes: item.upvotes + 1}
-            } else {
-                return item
-            }
-        })
-        suggestions.updateData('filteredSuggestions',suggestionsClone);
-    }
 
     const sortSuggestions = (key) => {
         let sortedSuggestions = suggestions.filteredSuggestions.map(item => {
@@ -61,7 +51,7 @@ export default function Home() {
             <SuggestionsHeader handleSortType={sortSuggestions}/>
             {suggestions.filteredSuggestions.length > 0  ?
                 suggestions.filteredSuggestions.map(req =>
-                    <SingleSuggestion key={req.id} filterByTag={filteredSuggestions} suggestion={req} upvote={handleUpvote}/>
+                    <SingleSuggestion key={req.id} filterByTag={filteredSuggestions} info={req} suggestion_id={req.id}/>
                 )
                 :
                 <EmptySuggestions/>

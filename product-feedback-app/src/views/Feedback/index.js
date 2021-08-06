@@ -1,10 +1,7 @@
 import React from 'react';
 import {
     AddCommentBox,
-    BackLink,
-    BackLinkText,
-    Banner,
-    BtnEdit, BtnPost, Comment, CommentContent, CommentInput, CommentRule,
+    BtnPost, Comment, CommentContent, CommentInput, CommentRule,
     Comments,
     CommentsTitle, DisplayName, NameWrapper, Replay, ReplayBtn, Rule,
     User, UserImage,
@@ -13,27 +10,17 @@ import {
 } from "./FeedbackStyle";
 import SingleSuggestion from "../../components/Suggestions/SingleSuggestion";
 import avatar from "../../assets/user-images/image-elijah.jpg";
+import FeedbackHeader from "./Component/Header";
 
 
 export default function FeedBack(props) {
-    const {info} = props.location.suggestionProps
+    const {selectedSuggestion} = props.location.suggestionProps;
+
     return (
         <Wrapper>
-            <Banner>
-                <BackLink>
-                    <svg width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 9L2 5L6 1" stroke="#4661E6" strokeWidth="2"/>
-                    </svg>
-                    <BackLinkText>
-                        Go Back
-                    </BackLinkText>
-                </BackLink>
-                <BtnEdit>
-                    Edit Feedback
-                </BtnEdit>
-            </Banner>
+            <FeedbackHeader/>
 
-            <SingleSuggestion key={info.id} suggestion={info}/>
+            <SingleSuggestion suggestion_id={selectedSuggestion.id} info={selectedSuggestion}/>
 
             <Comments>
                 <CommentsTitle>
@@ -86,8 +73,10 @@ export default function FeedBack(props) {
                             <ReplayBtn>Replay</ReplayBtn>
                         </User>
                         <CommentContent>
-                            Also, please allow styles to be applied based on system preferences. I would love to be able to
-                            browse Frontend Mentor in the evening after my device’s dark mode turns on without the bright
+                            Also, please allow styles to be applied based on system preferences. I would love to be able
+                            to
+                            browse Frontend Mentor in the evening after my device’s dark mode turns on without the
+                            bright
                             background it currently has.
                         </CommentContent>
                     </Replay>
@@ -104,8 +93,10 @@ export default function FeedBack(props) {
                             <ReplayBtn>Replay</ReplayBtn>
                         </User>
                         <CommentContent>
-                            Also, please allow styles to be applied based on system preferences. I would love to be able to
-                            browse Frontend Mentor in the evening after my device’s dark mode turns on without the bright
+                            Also, please allow styles to be applied based on system preferences. I would love to be able
+                            to
+                            browse Frontend Mentor in the evening after my device’s dark mode turns on without the
+                            bright
                             background it currently has.
                         </CommentContent>
                     </Replay>
@@ -122,8 +113,10 @@ export default function FeedBack(props) {
                             <ReplayBtn>Replay</ReplayBtn>
                         </User>
                         <CommentContent>
-                            Also, please allow styles to be applied based on system preferences. I would love to be able to
-                            browse Frontend Mentor in the evening after my device’s dark mode turns on without the bright
+                            Also, please allow styles to be applied based on system preferences. I would love to be able
+                            to
+                            browse Frontend Mentor in the evening after my device’s dark mode turns on without the
+                            bright
                             background it currently has.
                         </CommentContent>
                     </Replay>
