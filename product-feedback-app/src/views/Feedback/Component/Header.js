@@ -1,10 +1,11 @@
 import React from 'react';
 import {BackLink, BackLinkText, Banner, BtnEdit} from "../FeedbackStyle";
-import {useHistory,useLocation} from "react-router-dom";
+import {useHistory,useLocation,useParams} from "react-router-dom";
 
 export default function FeedbackHeader(){
     const history = useHistory();
     let location = useLocation().pathname;
+    let { id } = useParams();
 
     const goToEdit = () => {
         history.push('/edit-feedback');
@@ -20,7 +21,7 @@ export default function FeedbackHeader(){
                     Go Back
                 </BackLinkText>
             </BackLink>
-            { location === '/feedback' &&
+            { location === `/feedback/${id}` &&
                 <BtnEdit onClick={()=>goToEdit()}>
                     Edit Feedback
                 </BtnEdit>

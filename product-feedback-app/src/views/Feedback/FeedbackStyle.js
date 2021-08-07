@@ -187,6 +187,11 @@ export const CommentContent = styled(BackLinkText)`
 
 `;
 
+export const ReplyingTo = styled.span`
+  color: var(--purple-color);
+  font-weight: bold;
+`;
+
 export const AddCommentBox = styled(Comments)`
 `;
 

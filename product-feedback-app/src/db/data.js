@@ -69,6 +69,7 @@ export const DATA = {
           },
           "replies": [
             {
+              "id":0,
               "content": "While waiting for dark mode, there are browser extensions that will also do the job. Search for 'dark theme' followed by your browser. There might be a need to turn off the extension for sites with naturally black backgrounds though.",
               "replyingTo": "hummingbird1",
               "user": {
@@ -93,7 +94,7 @@ export const DATA = {
     {
       "id": 3,
       "title": "Q&A within the challenge hubs",
-      "category": "UX",
+      "category": "feature",
       "upvotes": 65,
       "status": "suggestion",
       "description": "Challenge-specific Q&A would make for easy reference.",
@@ -149,12 +150,13 @@ export const DATA = {
           "id": 8,
           "content": "I also want to be notified when devs I follow submit projects on FEM. Is in-app notification also in the pipeline?",
           "user": {
-            "image": "./assets/user-images/image-victoria.jpg",
+            "image": require("./assets/user-images/image-victoria.jpg"),
             "name": "Victoria Mejia",
             "username": "arlen_the_marlin"
           },
           "replies": [
             {
+              "id":1,
               "content": "Bumping this. It would be good to have a tab with a feed of people I follow so it's easy to see what challenges they’ve done lately. I learn a lot by reading good developers' code.",
               "replyingTo": "arlen_the_marlin",
               "user": {
@@ -295,6 +297,7 @@ export const DATA = {
           },
           "replies": [
             {
+              "id":2,
               "content": "Me too! I'd also love to see celebrations at specific points as well. It would help people take a moment to celebrate their achievements!",
               "replyingTo": "arlen_the_marlin",
               "user": {

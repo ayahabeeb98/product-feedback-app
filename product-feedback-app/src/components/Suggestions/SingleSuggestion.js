@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {
     SuggestionBox,
     SuggestionBoxTitle,
@@ -14,10 +14,11 @@ import {SuggestionsContext} from "../../context/SuggestionsContext";
 
 export default function SingleSuggestion({suggestion_id, info, filterByTag}) {
     const suggestions = useContext(SuggestionsContext)
-
+    const [upvote,setUpvote] = useState(info.upvotes)
     const handleUpvote = (id) => {
         const suggestionsClone = suggestions.filteredSuggestions.map(item => {
             if (item.id === id) {
+                setUpvote(item.upvotes + 1)
                 return {...item, upvotes: item.upvotes + 1}
             } else {
                 return item
@@ -33,7 +34,7 @@ export default function SingleSuggestion({suggestion_id, info, filterByTag}) {
                     <path d="M1.33447 6L5.33447 2L9.33447 6" stroke="#4661E6" strokeWidth="2"/>
                 </svg>
 
-                <VoteAmount>{info.upvotes}</VoteAmount>
+                <VoteAmount>{upvote}</VoteAmount>
             </VoteBtn>
             <div>
                 <Link to={`/feedback/${info.id}`}>
