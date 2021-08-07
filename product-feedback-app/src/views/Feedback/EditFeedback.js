@@ -27,7 +27,7 @@ const statusSelectData = {label: 'Update Status',hint:'Change feedback state'}
 
 export default function EditFeedback({match}) {
     const suggestions = useContext(SuggestionsContext)
-    const selectedSuggestion = suggestions.suggestionsData.filter(item => item.id === Number(match.params.id))[0];
+    const selectedSuggestion = suggestions.suggestionsData.filter(item => item.id === Number(match.params.id) || item.id === match.params.id)[0];
 
     const [title,setTitle] = useState(selectedSuggestion.title)
     const [category,setCategory] = useState(selectedSuggestion.category)

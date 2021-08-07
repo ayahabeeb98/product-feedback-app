@@ -70,6 +70,8 @@ export const SuggestionBox = styled.div`
     flex-direction: row;
     max-height: 151px;
     margin-bottom: 1.25em;
+    margin-left: auto;
+    margin-right: auto;
   }
 `
 
