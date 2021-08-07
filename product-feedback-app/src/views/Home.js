@@ -7,7 +7,6 @@ import {SuggestionsContext} from '../context/SuggestionsContext'
 export default function Home() {
     const suggestions = useContext(SuggestionsContext)
 
-
     const sortSuggestions = (key) => {
         let sortedSuggestions = suggestions.filteredSuggestions.map(item => {
             item.comments ? item.commentsCount = item.comments.length : item.commentsCount = 0
@@ -41,10 +40,6 @@ export default function Home() {
         suggestions.updateData('filteredSuggestions',filteredList);
         suggestions.updateData('currentCategory',key)
     }
-
-    //TODO
-
-    //Display a single suggestion, add, edit
 
     return (
         <>

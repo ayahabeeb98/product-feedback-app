@@ -5,6 +5,7 @@ import GlobalStyle from "./GlobalStyle"
 import {RouteWrapper} from "./routes/RouteWrapper";
 import {DATA} from "./db/data";
 import {SuggestionsContext} from './context/SuggestionsContext';
+import Loading from "./components/Loading";
 
 const Home = React.lazy(() => import("./views/Home"));
 const FeedBack = React.lazy(() => import("./views/Feedback/"))
@@ -33,13 +34,13 @@ function App() {
         <BrowserRouter>
             <GlobalStyle/>
             <Switch>
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<Loading/>}>
                     {!loading &&
                     <SuggestionsContext.Provider value={suggestions}>
 
                         <RouteWrapper path="/" exact component={Home} layout={BaseLayout}/>
 
-                        <Route path="/feedback" component={FeedBack}/>
+                        <Route path="/feedback/:id" component={FeedBack}/>
                         <Route path="/add-feedback" component={AddFeedBack}/>
                         <Route path="/edit-feedback" component={EditFeedback}/>
                     </SuggestionsContext.Provider>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {
     AddCommentBox,
     BtnPost, BtnReplay, Comment, CommentContent, CommentInput, CommentRule,
@@ -11,11 +11,15 @@ import {
 import SingleSuggestion from "../../components/Suggestions/SingleSuggestion";
 import avatar from "../../assets/user-images/image-elijah.jpg";
 import FeedbackHeader from "./Component/Header";
+import {SuggestionsContext} from "../../context/SuggestionsContext";
 
 
-export default function FeedBack(props) {
-    const {selectedSuggestion} = props.location.suggestionProps;
+export default function FeedBack({match}) {
     const [replayOpen,setReplayOpen] = useState(false)
+
+    const suggestions = useContext(SuggestionsContext)
+    const selectedSuggestion = suggestions.suggestionsData.filter(item=>item.id=== Number(match.params.id))[0];
+
     return (
         <Wrapper>
             <FeedbackHeader/>

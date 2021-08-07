@@ -30,7 +30,7 @@ Users should be able to:
 - **Bonus**: Keep track of any changes, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
 
 ### Demo
-[Product feedback app](https://product-feedback-app-reactjs.vercel.app/)
+[product-feedback-app-reactjs.vercel.app](https://product-feedback-app-reactjs.vercel.app/)
 
 ### Screenshot
 

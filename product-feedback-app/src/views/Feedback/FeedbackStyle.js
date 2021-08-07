@@ -377,7 +377,7 @@ export const FormControl = styled.input`
   }
 `;
 
-export const SelectCategory = styled.button`
+export const SelectOption = styled.button`
   width: 100%;
   height: 48px;
   font-size: 0.8125em;

@@ -1,18 +1,20 @@
 import React, {useState} from 'react';
-import {HomeHeader,FilterHeading,FilterOptions,BtnAdd,
-    SuggestionHeading,OptionsList,OptionItem,SelectedOption} from './HeaderStyle';
+import {
+    HomeHeader, FilterHeading, FilterOptions, BtnAdd,
+    SuggestionHeading, OptionsList, OptionItem, SelectedOption
+} from './HeaderStyle';
 import SuggestionIcon from "../../assets/suggestions/icon-suggestions.svg";
-import { useHistory } from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 const FILTERS = [
-    {name: "Most Upvotes",key:"mUpvotes"},
+    {name: "Most Upvotes", key: "mUpvotes"},
     {name: "Least Upvotes", key: "lUpvotes"},
     {name: "Most Comments", key: "mComments"},
     {name: "Least Comments", key: "lComments"}
 ];
 export default function SuggestionsHeader({handleSortType}) {
-    const [filtersOpen,setFiltersOpen] = useState(false);
-    const [filterKey,setFilterKey] = useState( {name: "Most Upvotes",key:"mUpvotes"});
+    const [filtersOpen, setFiltersOpen] = useState(false);
+    const [filterKey, setFilterKey] = useState({name: "Most Upvotes", key: "mUpvotes"});
     const history = useHistory();
 
     const handleFilterChange = (filterOption) => {
@@ -22,10 +24,10 @@ export default function SuggestionsHeader({handleSortType}) {
     };
 
     const filtersList = FILTERS.map(item => {
-        const ActiveOption = filterKey.key === item.key ? SelectedOption : OptionItem;
-        return <ActiveOption onClick={()=> handleFilterChange(item)} key={item.key}>
+            const ActiveOption = filterKey.key === item.key ? SelectedOption : OptionItem;
+            return <ActiveOption onClick={() => handleFilterChange(item)} key={item.key}>
                 {item.name}
-               </ActiveOption>
+            </ActiveOption>
         }
     );
 
@@ -36,7 +38,7 @@ export default function SuggestionsHeader({handleSortType}) {
 
     return (
         <HomeHeader>
-            <div style={{display:'flex',alignItems: 'center'}}>
+            <div style={{display: 'flex', alignItems: 'center'}}>
                 <div className="logoWrapper">
                     <img src={SuggestionIcon} alt=""/>
                     <SuggestionHeading>
@@ -44,7 +46,7 @@ export default function SuggestionsHeader({handleSortType}) {
                     </SuggestionHeading>
                 </div>
                 <FilterHeading>Sort by :</FilterHeading>
-                <FilterOptions onClick={()=>setFiltersOpen(!filtersOpen)}>{filterKey.name}</FilterOptions>
+                <FilterOptions onClick={() => setFiltersOpen(!filtersOpen)}>{filterKey.name}</FilterOptions>
                 {
                     filtersOpen &&
                     <OptionsList>
@@ -52,7 +54,7 @@ export default function SuggestionsHeader({handleSortType}) {
                     </OptionsList>
                 }
             </div>
-            <BtnAdd onClick={()=>goToAdd()}>
+            <BtnAdd onClick={() => goToAdd()}>
                 + Add Feedback
             </BtnAdd>
         </HomeHeader>
