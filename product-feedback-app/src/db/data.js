@@ -79,6 +79,7 @@ export const DATA = {
               }
             },
             {
+              "id":1,
               "content": "Good point! Using any kind of style extension is great and can be highly customizable, like the ability to change contrast and brightness. I'd prefer not to use one of such extensions, however, for security and privacy reasons.",
               "replyingTo": "annev1990",
               "user": {

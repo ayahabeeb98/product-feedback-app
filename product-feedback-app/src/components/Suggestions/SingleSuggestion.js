@@ -9,12 +9,14 @@ import {
     CommentsNumber
 } from './SuggestionsStyle';
 import {Tag} from '../../layout/components/BoxStyle';
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {SuggestionsContext} from "../../context/SuggestionsContext";
 
 export default function SingleSuggestion({suggestion_id, info, filterByTag}) {
     const suggestions = useContext(SuggestionsContext)
     const [upvote,setUpvote] = useState(info.upvotes)
+    let location = useLocation().pathname;
+
     const handleUpvote = (id) => {
         const suggestionsClone = suggestions.filteredSuggestions.map(item => {
             if (item.id === id) {
@@ -27,8 +29,10 @@ export default function SingleSuggestion({suggestion_id, info, filterByTag}) {
         suggestions.updateData('filteredSuggestions', suggestionsClone);
     }
 
+
+
     return (
-        <SuggestionBox>
+        <SuggestionBox details={location !== '/'}>
             <VoteBtn onClick={() => handleUpvote(suggestion_id)}>
                 <svg width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1.33447 6L5.33447 2L9.33447 6" stroke="#4661E6" strokeWidth="2"/>

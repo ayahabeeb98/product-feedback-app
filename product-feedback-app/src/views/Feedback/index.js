@@ -16,7 +16,7 @@ export default function FeedBack({match}) {
     const history = useHistory();
 
     const suggestions = useContext(SuggestionsContext)
-    const selectedSuggestion = suggestions.suggestionsData.filter(item => item.id === Number(match.params.id))[0];
+    const selectedSuggestion = suggestions.suggestionsData.filter(item => item.id === Number(match.params.id) || item.id === match.params.id)[0];
 
     const handleFiltering = (key) => {
         let filteredList = suggestions.suggestionsData.filter(item => item.category === key)

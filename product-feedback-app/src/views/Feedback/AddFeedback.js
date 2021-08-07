@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
+import {default as UUID} from "node-uuid";
 import {
     BtnsContainer, ErrorMsg,
     FeedbackBox, FloatingCircle, FormBtnAdd, FormCancel,
@@ -12,16 +13,49 @@ import {
 import FeedbackHeader from "./Component/Header";
 import Icon from "../../assets/shared/icon-new-feedback.svg"
 import SelectList from "./Component/SelectList";
+import {SuggestionsContext} from "../../context/SuggestionsContext";
+import {useHistory} from "react-router-dom";
 
 const TAGS = ['UI', 'UX', 'enhancement', 'bug', 'feature']
 const tagsSelectData = {label: 'Category', hint: 'Choose a category for your feedback'}
 
 export default function AddFeedback() {
+    const suggestions = useContext(SuggestionsContext)
+    const [title,setTitle] = useState('')
     const [category, setCategory] = useState('feature')
+    const [description,setDescription] = useState('')
     const [isError] = useState(false);
+    const history = useHistory();
 
     const handleSelectCategory = (category) => {
         setCategory(category)
+    }
+
+    const handleReset = () => {
+        setTitle('')
+        setCategory('')
+        setDescription('')
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+
+        const feedback = {
+            id:  UUID.v4(),
+            title,
+            category,
+            description,
+            upvotes:0,
+            status:'suggestion'
+        }
+
+        suggestions.suggestionsData.push(feedback)
+        const clonedSuggestions = [...suggestions.suggestionsData]
+
+        suggestions.updateData('suggestionsData',clonedSuggestions);
+        suggestions.updateData('filteredSuggestions',clonedSuggestions);
+        history.push('/');
+
     }
 
 
@@ -29,7 +63,7 @@ export default function AddFeedback() {
         <PageWrapper>
             <FeedbackHeader/>
 
-            <FormWrapper>
+            <FormWrapper onSubmit={handleSubmit}>
                 <FloatingCircle>
                     <img src={Icon} alt="new feedback icon" style={{width: '100%'}}/>
                 </FloatingCircle>
@@ -39,7 +73,7 @@ export default function AddFeedback() {
                 <FormGroup>
                     <FormLabel>Feedback Title</FormLabel>
                     <InputHint>Add a short, descriptive headline</InputHint>
-                    <FormControl/>
+                    <FormControl value={title} onChange={(e)=>setTitle(e.target.value)}/>
                 </FormGroup>
 
                 <SelectList formGroupData={tagsSelectData} handleChange={handleSelectCategory} listItem={TAGS}/>
@@ -48,7 +82,7 @@ export default function AddFeedback() {
                 <FormGroup>
                     <FormLabel>Feedback Detail</FormLabel>
                     <InputHint>Include any specific comments on what should be improved, added, etc.</InputHint>
-                    <FeedbackBox error={isError}/>
+                    <FeedbackBox error={isError} value={description} onChange={(e)=>setDescription(e.target.value)}/>
                     {isError &&
                     <ErrorMsg>
                         Can’t be empty
@@ -57,8 +91,8 @@ export default function AddFeedback() {
                 </FormGroup>
 
                 <BtnsContainer>
-                    <FormBtnAdd>Add Feedback</FormBtnAdd>
-                    <FormCancel type="reset">Cancel</FormCancel>
+                    <FormBtnAdd type="submit">Add Feedback</FormBtnAdd>
+                    <FormCancel type="reset" onClick={()=>handleReset()}>Cancel</FormCancel>
                 </BtnsContainer>
 
             </FormWrapper>

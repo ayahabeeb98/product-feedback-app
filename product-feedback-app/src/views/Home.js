@@ -6,7 +6,6 @@ import {SuggestionsContext} from '../context/SuggestionsContext'
 
 export default function Home() {
     const suggestions = useContext(SuggestionsContext)
-
     const sortSuggestions = (key) => {
         let sortedSuggestions = suggestions.filteredSuggestions.map(item => {
             item.comments ? item.commentsCount = item.comments.length : item.commentsCount = 0

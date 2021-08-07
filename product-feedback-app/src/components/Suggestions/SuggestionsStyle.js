@@ -56,12 +56,12 @@ export const SuggestionBox = styled.div`
   justify-content: flex-start;
   position: relative;
   border-radius: 10px;
-  margin-left: .75em;
-  margin-right: .75em;
+  margin-left: ${props=> props.details ? 'auto' : '.75em'};
+  margin-right: ${props=> props.details ? 'auto' : '.75em'};
 
   @media screen and (min-width: 370px) {
-    margin-left: 1.5em;
-    margin-right: 1.5em;
+    margin-left: ${props=> props.details ? 'auto' : '1.5em'};
+    margin-right: ${props=> props.details ? 'auto' : '1.5em'};
   }
   
   @media screen and (min-width: 768px) {
