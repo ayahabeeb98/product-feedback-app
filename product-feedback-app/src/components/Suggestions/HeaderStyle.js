@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const HomeHeader = styled.header`
   background-color: var(--navbar-color);
   color: var(--light-gray);
-  padding: .5em 1em;
+  padding: .5em .75em;
   display: flex;
   justify-content: space-between;
   align-items: center;

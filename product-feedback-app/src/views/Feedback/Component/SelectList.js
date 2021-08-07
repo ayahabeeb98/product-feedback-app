@@ -3,7 +3,7 @@ import {CategoriesList, FormGroup, FormLabel, InputHint, SelectOption} from "../
 import {OptionItem, SelectedOption} from "../../../components/Suggestions/HeaderStyle";
 
 export default function SelectList({formGroupData,listItem,handleChange}) {
-    const [selectedOption, setSelectedOption] = useState(listItem[0]);
+    const [selectedOption, setSelectedOption] = useState(formGroupData.category || listItem[0]);
     const [listOpen, setListOpen] = useState(false);
 
     const handleFilterChange = (val) => {

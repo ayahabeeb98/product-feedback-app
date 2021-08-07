@@ -8,7 +8,7 @@ export default function FeedbackHeader(){
     let { id } = useParams();
 
     const goToEdit = () => {
-        history.push('/edit-feedback');
+        history.push(`/edit-feedback/${id}`);
     }
 
     return (

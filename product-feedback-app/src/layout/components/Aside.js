@@ -34,7 +34,7 @@ export default function Aside() {
     };
 
     return (
-        <AsideWrapper>
+        <AsideWrapper open={isNavOpen}>
             <Header>
                 <HeadrText>
                     <MainText>Frontend Mentor</MainText>

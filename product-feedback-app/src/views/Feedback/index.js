@@ -3,7 +3,6 @@ import {
     AddCommentBox,
     BtnPost, CommentInput, CommentRule,
     CommentsTitle, Rule,
-
     Wrapper
 } from "./FeedbackStyle";
 import SingleSuggestion from "../../components/Suggestions/SingleSuggestion";

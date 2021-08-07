@@ -56,10 +56,14 @@ export const SuggestionBox = styled.div`
   justify-content: flex-start;
   position: relative;
   border-radius: 10px;
-  max-width: 327px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: .75em;
+  margin-right: .75em;
 
+  @media screen and (min-width: 370px) {
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+  }
+  
   @media screen and (min-width: 768px) {
     max-width: unset;
     padding: 1.75em 2em;

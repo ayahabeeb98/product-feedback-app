@@ -15,7 +15,7 @@ import RepliesList from "./RepliesList";
 
 export default function SingleComment({commentData}) {
     const [replayOpen, setReplayOpen] = useState(false)
-    console.log(commentData.user.image);
+
     return (
         <>
             <Comment>

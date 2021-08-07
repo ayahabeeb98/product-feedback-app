@@ -42,7 +42,7 @@ function App() {
 
                         <Route path="/feedback/:id" component={FeedBack}/>
                         <Route path="/add-feedback" component={AddFeedBack}/>
-                        <Route path="/edit-feedback" component={EditFeedback}/>
+                        <Route path="/edit-feedback/:id" component={EditFeedback}/>
                     </SuggestionsContext.Provider>
                     }
                 </Suspense>

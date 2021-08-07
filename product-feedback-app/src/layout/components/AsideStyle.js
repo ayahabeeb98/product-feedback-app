@@ -8,6 +8,7 @@ export const AsideWrapper = styled.aside`
     grid-template-columns: 1fr;
     position: relative;
     z-index: 2;
+    overflow: ${props => props.open ? 'visible' : 'hidden'};
     
     @media screen and (min-width: 768px) {
       margin-bottom: 2.5em;
@@ -31,9 +32,14 @@ export const Header = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em 1.5em;
+    padding: 1em .75em;
 
-    @media screen and (min-width: 768px) {
+  @media screen and (min-width: 370px) {
+    padding:  1em 1.5em;
+  }
+
+
+  @media screen and (min-width: 768px) {
       justify-content: flex-start;
       align-items: flex-end;
       padding: 6.4375em 1.5em 1.5em 1.5em;
@@ -87,7 +93,7 @@ export const SubText = styled.p`
 
 export const ToggleBtn = styled.button`
     position: relative;
-    right: -1em;
+    right: -.5em;
     padding: 0 1em;
     border: 0;
     height: 100%;
@@ -105,7 +111,7 @@ export const MobileMenu = styled.div`
     top: 100%;
     background-color: var(--background-color);
     right:0;
-   transform:${props => props.open ? "translateX(0)" : "translateX(-100%)"};
+   transform:${props => props.open ? "translateX(0)" : "translateX(100%)"};
     visibility: ${props => props.open ? 'visible' : 'hidden'};
     transition: all .5s ease-in-out;
     z-index: 2;

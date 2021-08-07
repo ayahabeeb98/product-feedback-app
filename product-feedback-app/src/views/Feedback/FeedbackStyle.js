@@ -207,7 +207,7 @@ export const CommentInput = styled.textarea`
   border-radius: 10px;
   max-height: 80px;
   resize: none;
-
+  color: var(--dark-blue);
   &::placeholder {
     color: #8C92B3;
   }
