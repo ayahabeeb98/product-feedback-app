@@ -11,7 +11,7 @@ import {
     UserName
 } from "../FeedbackStyle";
 
-export default function SingleReplay({replayData}) {
+export default function SingleReplay({replayData,handleOnClick}) {
     return (
         <Replay>
             <User>
@@ -22,7 +22,7 @@ export default function SingleReplay({replayData}) {
                         <UserName>{replayData.user.username}</UserName>
                     </NameWrapper>
                 </UserInfo>
-                <ReplayBtn>Replay</ReplayBtn>
+                <ReplayBtn onClick={()=>handleOnClick(replayData.user.username)}>Replay</ReplayBtn>
             </User>
             <CommentContent>
                 <ReplyingTo>@{replayData.replyingTo} </ReplyingTo>

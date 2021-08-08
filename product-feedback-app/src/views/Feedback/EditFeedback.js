@@ -19,6 +19,7 @@ import FeedbackHeader from "./Component/Header";
 import Icon from "../../assets/shared/icon-edit-feedback.svg";
 import SelectList from "./Component/SelectList";
 import {SuggestionsContext} from "../../context/SuggestionsContext";
+import {useHistory} from "react-router-dom";
 
 const TAGS = ['UI', 'UX', 'enhancement', 'bug', 'feature']
 const STATUS = ['planned','suggestion','in-progress','live']
@@ -27,13 +28,14 @@ const statusSelectData = {label: 'Update Status',hint:'Change feedback state'}
 
 export default function EditFeedback({match}) {
     const suggestions = useContext(SuggestionsContext)
-    const selectedSuggestion = suggestions.suggestionsData.filter(item => item.id === Number(match.params.id) || item.id === match.params.id)[0];
-
+    const selectedSuggestion = suggestions.suggestionsData
+        .filter(item => item.id === Number(match.params.id) || item.id === match.params.id)[0];
     const [title,setTitle] = useState(selectedSuggestion.title)
     const [category,setCategory] = useState(selectedSuggestion.category)
     const [status, setStatus] = useState(selectedSuggestion.status);
     const [description,setDescription] = useState(selectedSuggestion.description)
-    const [isError] = useState(false);
+    const [isError,setIsError] = useState(false);
+    const history = useHistory();
 
     const handleSelectCategory = (category) => {
         setCategory(category)
@@ -45,6 +47,8 @@ export default function EditFeedback({match}) {
 
     const handleSubmit = e => {
         e.preventDefault();
+        setIsError(false);
+
         if (title && description) {
             const clonedSuggestions = [...suggestions.suggestionsData];
             clonedSuggestions.map(item => {
@@ -58,6 +62,9 @@ export default function EditFeedback({match}) {
             })
 
             suggestions.updateData('suggestionsData',clonedSuggestions);
+            history.goBack();
+        }else {
+            setIsError(true)
         }
     }
 

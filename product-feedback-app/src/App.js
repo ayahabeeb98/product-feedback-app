@@ -20,7 +20,7 @@ function App() {
         let suggestionsData = DATA.productRequests.sort((a, b) => (b.upvotes - a.upvotes));
         let currentCategory = 'All';
         let filteredSuggestions = [...suggestionsData];
-        setSuggestions({suggestionsData, currentCategory, filteredSuggestions, updateData})
+        setSuggestions({user:DATA.currentUser,suggestionsData, currentCategory, filteredSuggestions, updateData})
         setLoading(false)
     }, [])
 

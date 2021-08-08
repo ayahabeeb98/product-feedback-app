@@ -1,6 +1,6 @@
 export const DATA = {
   "currentUser": {
-    "image": "./assets/user-images/image-zena.jpg",
+    "image": "/assets/user-images/image-zena.jpg",
     "name": "Zena Kelley",
     "username": "velvetround"
   },

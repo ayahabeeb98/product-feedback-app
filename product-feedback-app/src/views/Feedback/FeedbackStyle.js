@@ -87,7 +87,7 @@ export const Comment = styled.div`
     position: absolute;
     content: '';
     width: 1px;
-    height: calc(100% - 190px);
+    height: ${props => props.hasReplies ? 'calc(100% - 190px)' : '0'};
     background-color: rgba(140, 146, 179, .25);
     left: 0;
     top: 10em;
@@ -176,6 +176,8 @@ export const ReplayBtn = styled.a`
 export const CommentContent = styled(BackLinkText)`
   font-weight: 500;
   margin-left: 0;
+  word-break: break-word;
+  
   &:hover {
     text-decoration: unset;
   }
@@ -200,7 +202,6 @@ export const CommentInput = styled.textarea`
   padding: 1.23em;
   background: var(--background-color);
   margin-top: 1.846em;
-  margin-bottom: 1.23em;
   width: 100% !important;
   display: block;
   height: 80px;
@@ -208,6 +209,8 @@ export const CommentInput = styled.textarea`
   max-height: 80px;
   resize: none;
   color: var(--dark-blue);
+  border-color: ${props => props.error ? "var(--red-color)" : "transparent"};
+  margin-bottom: ${props => props.error ? "4px" : "1.23em"};
   &::placeholder {
     color: #8C92B3;
   }
@@ -226,6 +229,10 @@ export const CommentRule = styled(Banner)`
 export const Rule = styled(CommentContent)`
   margin-left: 5px;
 `
+export const RuleBreak = styled(CommentContent)`
+      color: var(--white);
+      background-color: var(--red-color);
+`;
 
 export const BtnPost = styled(BtnEdit)`
   background-color: var(--purple-color);

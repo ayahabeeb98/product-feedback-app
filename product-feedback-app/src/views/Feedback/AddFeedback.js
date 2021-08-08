@@ -24,7 +24,7 @@ export default function AddFeedback() {
     const [title,setTitle] = useState('')
     const [category, setCategory] = useState('feature')
     const [description,setDescription] = useState('')
-    const [isError] = useState(false);
+    const [isError,setIsError] = useState(false);
     const history = useHistory();
 
     const handleSelectCategory = (category) => {
@@ -39,22 +39,28 @@ export default function AddFeedback() {
 
     const handleSubmit = e => {
         e.preventDefault();
+        setIsError(false);
+        if(title && description) {
+            const feedback = {
+                id:  UUID.v4(),
+                title,
+                category,
+                description,
+                upvotes:0,
+                status:'suggestion'
+            }
 
-        const feedback = {
-            id:  UUID.v4(),
-            title,
-            category,
-            description,
-            upvotes:0,
-            status:'suggestion'
+            suggestions.suggestionsData.push(feedback)
+            const clonedSuggestions = [...suggestions.suggestionsData]
+
+            suggestions.updateData('suggestionsData',clonedSuggestions);
+            suggestions.updateData('filteredSuggestions',clonedSuggestions);
+            history.push('/');
+        }else {
+            setIsError(true)
         }
 
-        suggestions.suggestionsData.push(feedback)
-        const clonedSuggestions = [...suggestions.suggestionsData]
 
-        suggestions.updateData('suggestionsData',clonedSuggestions);
-        suggestions.updateData('filteredSuggestions',clonedSuggestions);
-        history.push('/');
 
     }
 

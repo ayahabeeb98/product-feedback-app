@@ -83,6 +83,10 @@ const GlobalStyle = createGlobalStyle`
       
    
    }
+   
+   .text-error {
+     color: var(--red-color) !important;
+   }
   
 `;
 
