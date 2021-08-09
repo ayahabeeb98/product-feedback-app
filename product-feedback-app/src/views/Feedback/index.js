@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react';
 import {
     AddCommentBox,
     BtnPost, CommentInput, CommentRule,
-    CommentsTitle, ErrorMsg, Rule, RuleBreak,
+    CommentsTitle, ErrorMsg, Rule,
     Wrapper
 } from "./FeedbackStyle";
 import SingleSuggestion from "../../components/Suggestions/SingleSuggestion";

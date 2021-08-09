@@ -3,7 +3,7 @@ import {
     BtnReplay,
     Comment,
     CommentContent,
-    DisplayName, ErrorMsg,
+    DisplayName,
     NameWrapper,
     ReplayBtn, ReplayForm, ReplyInput,
     User,

@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, { useState} from 'react';
 import {
     PageWrapper,
     FormWrapper,
@@ -18,8 +18,8 @@ import {
 import FeedbackHeader from "./Component/Header";
 import Icon from "../../assets/shared/icon-edit-feedback.svg";
 import SelectList from "./Component/SelectList";
-import {SuggestionsContext} from "../../context/SuggestionsContext";
 import {useHistory} from "react-router-dom";
+import useSuggestions from "../../context/useSuggestions";
 
 const TAGS = ['UI', 'UX', 'enhancement', 'bug', 'feature']
 const STATUS = ['planned','suggestion','in-progress','live']
@@ -27,9 +27,10 @@ const tagsSelectData = {label: 'Category',hint:'Choose a category for your feedb
 const statusSelectData = {label: 'Update Status',hint:'Change feedback state'}
 
 export default function EditFeedback({match}) {
-    const suggestions = useContext(SuggestionsContext)
+    const suggestions = useSuggestions()
     const selectedSuggestion = suggestions.suggestionsData
         .filter(item => item.id === Number(match.params.id) || item.id === match.params.id)[0];
+    
     const [title,setTitle] = useState(selectedSuggestion.title)
     const [category,setCategory] = useState(selectedSuggestion.category)
     const [status, setStatus] = useState(selectedSuggestion.status);

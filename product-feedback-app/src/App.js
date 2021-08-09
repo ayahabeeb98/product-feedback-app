@@ -21,8 +21,15 @@ function App() {
         let currentCategory = 'All';
         let filteredSuggestions = [...suggestionsData];
         setSuggestions({user:DATA.currentUser,suggestionsData, currentCategory, filteredSuggestions, updateData})
-        setLoading(false)
     }, [])
+
+    const value = React.useMemo(() => {
+        setLoading(false)
+        return {
+            ...suggestions,
+        }
+    }, [suggestions])
+
 
     const updateData = (key, value) => {
         setSuggestions(prevSuggestions => {
@@ -36,7 +43,7 @@ function App() {
             <Switch>
                 <Suspense fallback={<Loading/>}>
                     {!loading &&
-                    <SuggestionsContext.Provider value={suggestions}>
+                    <SuggestionsContext.Provider value={value}>
 
                         <RouteWrapper path="/" exact component={Home} layout={BaseLayout}/>
 
