@@ -8,7 +8,7 @@ export default function RoadMapBox() {
                 <BoxMainTitle>
                     Roadmap
                 </BoxMainTitle>
-                <BoxLink>
+                <BoxLink href={'/roadmap'}>
                     view
                 </BoxLink>
             </BoxTitleWrapper>

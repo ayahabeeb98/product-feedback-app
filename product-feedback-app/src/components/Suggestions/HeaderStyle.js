@@ -124,7 +124,7 @@ export const BtnAdd = styled.button`
       background-color: #C75AF6;
     }  
     
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 992px) {
       min-width:158px;
       height: 44px;
     }
