@@ -40,10 +40,61 @@ export const BackText = styled.p`
 `;
 
 export const PageHeading = styled.h1`
-    font-size: 1.125em;
-    margin-top: 0.2em;
+  font-size: 1.125em;
+  margin-top: 0.2em;
 
   @media screen and (min-width: 768px) {
     font-size: 1.5em;
   }
+`;
+
+export const StatusHeading = styled.h3`
+  font-size: 1.125em;
+  color: var(--dark-blue);
+  margin-bottom: .3em;
+
+  @media screen and (min-width: 768px) {
+    font-size: 0.875em;
+  }
+
+  @media screen and (min-width: 992px) {
+    font-size: 1.125em;
+  }
+`;
+
+export const StatusSubTitle = styled.p`
+  font-size: 0.8125em;
+  color: var(--grayish-blue);
+
+  @media screen and (min-width: 768px) {
+    font-size: 0.875em;
+  }
+
+  @media screen and (min-width: 992px) {
+    font-size: 1em;
+  }
+`;
+
+export const StatusGroup = styled.div`
+  padding: 1.5em;
+  display: grid;
+  grid-row-gap: 1em;
+
+  @media screen and (min-width: 768px) {
+    padding: 0;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1em 0.625em;
+  }
+
+  @media screen and (min-width: 992px) {
+    grid-gap: 1.5em 1.875em;
+  }
+`;
+
+export const StatusBox = styled.div`
+  background-color: var(--white);
+  border-radius: 10px;
+  width: 100%;
+  height: 233px;
+
 `;
