@@ -47,7 +47,7 @@ export default function AddFeedback() {
                 category,
                 description,
                 upvotes:0,
-                status:'suggestion'
+                status:'planned'
             }
 
             suggestions.suggestionsData.push(feedback)

@@ -117,8 +117,12 @@ export const SuggestionBoxTitle = styled(SuggestionsTitle)`
   font-size: 0.8125em;
 
   @media screen and (min-width: 768px) {
-    font-size: 1.125em;
+    font-size: ${props => props.inner ? '0.8125em' : '1.125em'};
     margin-bottom: 0.9em;
+  }
+  
+  @media screen and (min-width: 992px) {
+    font-size: 1.125em;
   }
 `
 
