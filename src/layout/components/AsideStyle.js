@@ -16,7 +16,7 @@ export const AsideWrapper = styled.aside`
       grid-gap: 10px;
     }
     
-     @media screen and (min-width: 992px) {
+     @media screen and (min-width: 1099px) {
         display: block;
      }
     
@@ -47,7 +47,7 @@ export const Header = styled.header`
       border-radius: 10px;
     }
     
-     @media screen and (min-width: 992px) {
+     @media screen and (min-width: 1099px) {
        background-image: url(${desktopBg});
        padding-top: 3.875em;
        height: fit-content;

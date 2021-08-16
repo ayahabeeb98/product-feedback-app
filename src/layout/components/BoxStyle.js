@@ -78,7 +78,7 @@ export const BoxMainTitle = styled.h3`
   color: var(--dark-blue);
 `;
 
-export const BoxLink = styled.a`
+export const BoxLink = styled.span`
    color: var(--light-blue);
    text-decoration: underline;
    text-transform: capitalize;

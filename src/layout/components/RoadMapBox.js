@@ -1,5 +1,6 @@
 import React from 'react';
-import {RoadMapBoxWrapper,BoxTitleWrapper,BoxMainTitle,BoxLink,RoadMapItem,ItemNumber} from './BoxStyle';
+import {RoadMapBoxWrapper, BoxTitleWrapper, BoxMainTitle, BoxLink, RoadMapItem, ItemNumber} from './BoxStyle';
+import {Link} from "react-router-dom";
 
 export default function RoadMapBox() {
     return (
@@ -8,12 +9,14 @@ export default function RoadMapBox() {
                 <BoxMainTitle>
                     Roadmap
                 </BoxMainTitle>
-                <BoxLink href={'/roadmap'}>
-                    view
-                </BoxLink>
+                <Link to={'/roadmap'}>
+                    <BoxLink>
+                        view
+                    </BoxLink>
+                </Link>
             </BoxTitleWrapper>
 
-            <ul style={{width:"100%"}}>
+            <ul style={{width: "100%"}}>
                 <RoadMapItem>
                     <p>
                         Planned

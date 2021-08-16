@@ -69,7 +69,6 @@ export default function EditFeedback({match}) {
 
             suggestions.updateData('suggestionsData',clonedSuggestions);
             suggestions.updateData('filteredSuggestions',clonedSuggestions);
-            console.log(suggestions);
             history.push('/');
         }else {
             setIsError(true)

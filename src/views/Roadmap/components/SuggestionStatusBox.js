@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import {
     CardFooter,
     Circle,
@@ -15,8 +15,25 @@ import {
     SuggestionBoxTitle, VoteAmount
 } from "../../../components/Suggestions/SuggestionsStyle";
 import {Tag} from "../../../layout/components/BoxStyle";
+import {SuggestionsContext} from "../../../context/SuggestionsContext";
 
 export default function SuggestionStatusBox({info}){
+    const suggestions = useContext(SuggestionsContext)
+    const [upvote,setUpvote] = useState(info.upvotes)
+
+    const handleUpvote = (id) => {
+        const suggestionsClone = suggestions.filteredSuggestions.map(item => {
+            if (item.id === id) {
+                setUpvote(item.upvotes + 1)
+                return {...item, upvotes: item.upvotes + 1}
+            } else {
+                return item
+            }
+        })
+        suggestions.updateData('filteredSuggestions', suggestionsClone);
+        suggestions.updateData('suggestionsData', suggestionsClone);
+    }
+
     return (
         <>
             <StatusBox status={info.status}>
@@ -33,12 +50,12 @@ export default function SuggestionStatusBox({info}){
 
                 </div>
                 <CardFooter>
-                    <VoteButton>
+                    <VoteButton onClick={() => handleUpvote(info.id)}>
                         <svg width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1.33447 6L5.33447 2L9.33447 6" stroke="#4661E6" strokeWidth="2"/>
                         </svg>
 
-                        <VoteAmount>{info.upvotes}</VoteAmount>
+                        <VoteAmount>{upvote}</VoteAmount>
                     </VoteButton>
 
                     <CommentCount>

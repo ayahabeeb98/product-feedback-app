@@ -1,70 +1,63 @@
-import React, {useCallback, useState} from "react";
+import React, {useState} from "react";
 import {
     RoadmapContainer,
-    StatusGroup,
     StatusGroups,
-    StatusHeading,
-    StatusSubTitle,
-    TabLink,
     TabNav
 } from "./RoadmapStyle";
 
 import Header from "./components/Header";
 import useSuggestions from "../../context/useSuggestions";
-import SuggestionStatusBox from "./components/SuggestionStatusBox";
+import Tabs from "./components/Tabs";
+import SuggestionsList from "./components/SuggestionsList";
 
 
-export default function Roadmap(){
-    const [currentTab,setCurrenTab] = useState('in-progress')
+export default function Roadmap() {
+    const [currentTab, setCurrenTab] = useState('in-progress')
     const suggestions = useSuggestions()
-    console.log(suggestions);
 
-    const memoizedCallback = useCallback(
-        key => {
-            return suggestions.suggestionsData
-                .filter(item => item.status === key);
-        },[suggestions]
-    )
-
-    const suggestionGroups = React.useMemo(
-        ()=> {
-            return {
-                InProgress: memoizedCallback("in-progress"),
-                Live : memoizedCallback("live"),
-                Planned: memoizedCallback( "planned")
-            }
-        }
-        ,[memoizedCallback])
-
-    const changeTab = (key) => {
-        setCurrenTab(key)
+    const memoizedCallback = key => {
+        return suggestions.suggestionsData
+            .filter(item => item.status === key);
     }
+
+    const suggestionGroups = {
+        InProgress: memoizedCallback("in-progress"),
+        Live: memoizedCallback("live"),
+        Planned: memoizedCallback("planned")
+    }
+
+    const tabs = [
+        {
+            id: 1,
+            name: 'planned',
+            subTitle: 'Ideas prioritized for research',
+            list: suggestionGroups.Planned,
+            length: suggestionGroups.Planned.length
+        },
+        {
+            id: 2,
+            name: 'in-progress',
+            subTitle: 'Currently being developed',
+            list: suggestionGroups.InProgress,
+            length: suggestionGroups.InProgress.length
+        },
+        {
+            id: 3,
+            name: 'live',
+            subTitle: 'Released features',
+            list: suggestionGroups.Live,
+            length: suggestionGroups.Live.length
+        }
+    ]
 
     return (
         <RoadmapContainer>
-           <Header />
+            <Header/>
             <TabNav>
-                <TabLink active={currentTab === 'planned'} onClick={()=>changeTab('planned')}>Planned ({suggestionGroups.Planned.length})</TabLink>
-                <TabLink active={currentTab === 'in-progress'} onClick={()=>changeTab('in-progress')}>In-progress ({suggestionGroups.InProgress.length})</TabLink>
-                <TabLink active={currentTab === 'live'} onClick={()=>changeTab('live')}>Live ({suggestionGroups.Live.length})</TabLink>
+                {tabs.map(tab => <Tabs key={tab.id} data={tab} currentTab={currentTab} handleClick={setCurrenTab}/>)}
             </TabNav>
             <StatusGroups>
-                <StatusGroup active={currentTab === 'planned'}>
-                    <StatusHeading>Planned ({suggestionGroups.Planned.length})</StatusHeading>
-                    <StatusSubTitle>Ideas prioritized for research</StatusSubTitle>
-                    {suggestionGroups.Planned.map(item => <SuggestionStatusBox  info={item} key={item.id}/>)}
-                </StatusGroup>
-                <StatusGroup active={currentTab === 'in-progress'}>
-                    <StatusHeading>In-progress ({suggestionGroups.InProgress.length})</StatusHeading>
-                    <StatusSubTitle>Currently being developed</StatusSubTitle>
-                    {suggestionGroups.InProgress.map(item => <SuggestionStatusBox  info={item} key={item.id}/>)}
-                </StatusGroup>
-                <StatusGroup active={currentTab === 'live'}>
-                    <StatusHeading>Live ({suggestionGroups.Live.length})</StatusHeading>
-                    <StatusSubTitle>Released features</StatusSubTitle>
-                    {suggestionGroups.Live.map(item => <SuggestionStatusBox  info={item} key={item.id}/>)}
-                </StatusGroup>
-
+                {tabs.map(tab => <SuggestionsList key={tab.id} data={tab} currentTab={currentTab}/>)}
             </StatusGroups>
         </RoadmapContainer>
     )

@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
     margin: 3.5em 2.5em 7.5em;
   }
 
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: 1099px) {
     width: 50%;
     margin: 5em auto 8em;
   }

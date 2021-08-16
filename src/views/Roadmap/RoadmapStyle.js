@@ -57,6 +57,10 @@ export const StatusHeading = styled.h3`
   &:hover {
     color: var(--very-dark-blue);
   }
+  
+  &:first-letter {
+    text-transform: capitalize;
+  }
 
   @media screen and (min-width: 768px) {
     font-size: 0.875em;
@@ -128,7 +132,8 @@ export const StatusBox = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    height: 251px;
+    //height: 251px;
+    height: unset;
     padding: 1.25em;
     &:not(:last-of-type) {
       margin-bottom: 1.5em;
@@ -139,7 +144,7 @@ export const StatusBox = styled.div`
   }
 
   @media screen and (min-width: 992px) {
-    height: 272px;
+    //height: 272px;
     padding: 1.625em 2em 2em;
   }
 `;
@@ -215,6 +220,10 @@ export const TabLink = styled.a`
   padding: 1.4em 0;
   text-align: center;
   position: relative;
+  
+  &:first-letter {
+    text-transform: capitalize;
+  }
   
   &:after {
     content: '';
