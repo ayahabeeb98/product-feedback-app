@@ -4,7 +4,7 @@ import {SuggestionsContext} from '../../context/SuggestionsContext'
 
 const TAGS = ['All','UI','UX','enhancement','bug','feature']
 
-export default function TagsBox() {
+export default function TagsBox({toggleNav,isMobile}) {
     const suggestions = useContext(SuggestionsContext)
     const handleClick = (tagName) => {
         if (tagName === 'All') {
@@ -13,6 +13,8 @@ export default function TagsBox() {
             let filteredList = suggestions.suggestionsData.filter(item => item.category === tagName)
             suggestions.updateData('filteredSuggestions',filteredList);
         }
+
+        isMobile && toggleNav()
 
         suggestions.updateData('currentCategory',tagName)
     }

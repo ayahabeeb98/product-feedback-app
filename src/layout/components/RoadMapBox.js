@@ -1,19 +1,26 @@
 import React from 'react';
 import {RoadMapBoxWrapper, BoxTitleWrapper, BoxMainTitle, BoxLink, RoadMapItem, ItemNumber} from './BoxStyle';
-import {Link} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 export default function RoadMapBox() {
+    const history = useHistory();
+
+    const handleClick = () => {
+        document.body.classList.remove('overlay')
+        history.push('/roadmap');
+    }
+
     return (
         <RoadMapBoxWrapper>
             <BoxTitleWrapper>
                 <BoxMainTitle>
                     Roadmap
                 </BoxMainTitle>
-                <Link to={'/roadmap'}>
-                    <BoxLink>
-                        view
-                    </BoxLink>
-                </Link>
+
+                <BoxLink onClick={handleClick}>
+                    view
+                </BoxLink>
+
             </BoxTitleWrapper>
 
             <ul style={{width: "100%"}}>

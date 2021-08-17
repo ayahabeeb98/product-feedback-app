@@ -5,11 +5,13 @@ import OpenIcon from "../../assets/shared/mobile/icon-hamburger.svg";
 import TagsBox from "./TagsBox";
 import MobileNav from "./MobileNav";
 import RoadMapBox from "./RoadMapBox";
+import {useLocation} from "react-router-dom";
 
 
 export default function Aside() {
     const [isNavOpen, setIsNavOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    let location = useLocation().pathname;
 
     useEffect(() => {
         handleResize();
@@ -30,6 +32,7 @@ export default function Aside() {
 
     const toggleNav = () => {
         setIsNavOpen(!isNavOpen);
+        console.log('clicked')
         // document.body.classList.toggle('overlay')
     };
 
@@ -42,15 +45,15 @@ export default function Aside() {
                 </HeadrText>
 
                 {
-                    isMobile &&
+                    isMobile && location === `/` &&
                     <ToggleBtn aria-label='Toggle menu' aria-expanded={isNavOpen}
                                aria-haspopup='true' onClick={toggleNav}>
                         <img src={isNavOpen ? CloseIcon : OpenIcon} alt=""/>
                     </ToggleBtn>
                 }
             </Header>
-            {isMobile ?
-            <MobileNav isOpen={isNavOpen}/>
+            {isMobile  ?
+            <MobileNav handleClick={toggleNav} isOpen={isNavOpen}/>
             :
             <>
                 <TagsBox/>

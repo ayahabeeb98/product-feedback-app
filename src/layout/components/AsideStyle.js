@@ -69,6 +69,7 @@ export const MainText = styled.h2`
   font-weight: 700;
   line-height: 1.5em;
   letter-spacing: -0.19px;
+  user-select: none;
   
   @media screen and (min-width: 768px){
     font-size: 1.25em;
@@ -85,8 +86,9 @@ export const SubText = styled.p`
     line-height: 1.5em;
     letter-spacing: 0;
     opacity: 0.75;
-    
-    @media screen and (min-width: 768px){
+    user-select: none;
+
+  @media screen and (min-width: 768px){
       font-size: .9375em;
     }
 `;

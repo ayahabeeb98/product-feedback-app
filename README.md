@@ -34,7 +34,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![preview image](./preview.jpg)
 
 ## My process
 
