@@ -22,7 +22,7 @@ export default function SuggestionStatusBox({info}){
     const [upvote,setUpvote] = useState(info.upvotes)
 
     const handleUpvote = (id) => {
-        const suggestionsClone = suggestions.filteredSuggestions.map(item => {
+        const suggestionsClone = suggestions.suggestionsData.map(item => {
             if (item.id === id) {
                 setUpvote(item.upvotes + 1)
                 return {...item, upvotes: item.upvotes + 1}
@@ -30,7 +30,7 @@ export default function SuggestionStatusBox({info}){
                 return item
             }
         })
-       
+
         suggestions.updateData('suggestionsData', suggestionsClone);
     }
 
