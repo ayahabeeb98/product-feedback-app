@@ -30,7 +30,7 @@ export default function SuggestionStatusBox({info}){
                 return item
             }
         })
-        suggestions.updateData('filteredSuggestions', suggestionsClone);
+       
         suggestions.updateData('suggestionsData', suggestionsClone);
     }
 
