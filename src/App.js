@@ -6,6 +6,7 @@ import {RouteWrapper} from "./routes/RouteWrapper";
 import {DATA} from "./db/data";
 import {SuggestionsContext} from './context/SuggestionsContext';
 import Loading from "./components/Loading";
+import Footer from "./components/Footer";
 
 const Home = React.lazy(() => import("./views/Home"));
 const FeedBack = React.lazy(() => import("./views/Feedback/"))
@@ -52,6 +53,8 @@ function App() {
                         <Route path="/add-feedback" component={AddFeedBack}/>
                         <Route path="/edit-feedback/:id" component={EditFeedback}/>
                         <Route path="/roadmap" component={Roadmap}/>
+                        <Footer/>
+
                     </SuggestionsContext.Provider>
                     }
                 </Suspense>

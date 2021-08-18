@@ -87,7 +87,16 @@ const GlobalStyle = createGlobalStyle`
    .text-error {
      color: var(--red-color) !important;
    }
-  
+
+    .attribution {
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 2em;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
 `;
 
 export default GlobalStyle;
