@@ -19,10 +19,14 @@ export default function SingleSuggestion({suggestion_id, info, filterByTag}) {
 
     const handleUpvote = (id) => {
         const suggestionsClone = suggestions.filteredSuggestions.map(item => {
-            if (item.id === id) {
+            if (item.id === id && !item.user) {
                 setUpvote(item.upvotes + 1)
-                return {...item, upvotes: item.upvotes + 1}
-            } else {
+                return {...item, upvotes: item.upvotes + 1,user:true}
+            }else if(item.id === id && item.user){
+                setUpvote(item.upvotes - 1)
+                return {...item, upvotes: item.upvotes - 1,user:false}
+            }
+            else {
                 return item
             }
         })
